@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Muscles_app.Views.AddExerciseTypePage"
+             BackgroundColor="Black">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Padding="20" VerticalOptions="StartAndExpand" Spacing="30">
+               
+                    <Entry
+                        x:Name="txtName"
+                        Placeholder="Name" 
+                        TextColor="White" 
+                        PlaceholderColor="Gray"
+                        FontSize="20"
+                    /> 
+               
+               
+                <StackLayout Spacing="10">
+                    <Label Text=" Description:"
+                           TextColor="Gray"
+                           FontSize="20"/>      
+                    <Editor 
+                        x:Name="txtDescription"
+                        Text="a"
+                        TextColor="White" 
+                        Keyboard="Plain" 
+                        AutoSize="TextChanges" 
+                        MaxLength="500" />  
+
+                </StackLayout>
+                
+                
+                <Picker x:Name="equipmentPicker"
+                     TextColor="White"
+                     Title="Select equipmpent"
+                     TitleColor="Gray"
+                     FontSize="20"
+                     SelectedItem=""  />
+
+                <Picker x:Name="bodyPartPicker"
+                     TextColor="White"
+                     Title="Select bodypart"
+                     TitleColor="Gray"
+                     FontSize="20"
+                        />
+            </StackLayout>
+
+            <StackLayout VerticalOptions="End" Padding="20">
+                <Button BackgroundColor="#AC94C9"
+                   Text="Add Exercise"
+                   TextColor="White"
+                   Font="16"
+                   Padding="10"
+                   Clicked="AddExerciseTypeButton_Clicked"> 
+
+                </Button>
+            </StackLayout>
+            <StackLayout Padding="10"/>
+        </StackLayout>
+        
+       
+    </ContentPage.Content>
+</ContentPage>

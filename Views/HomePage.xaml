@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Muscles_app.Views.HomePage"
+             BackgroundColor="Black">
+    <ContentPage.Content
+         NavigationPage.HasBackButton="False">
+        <StackLayout>
+            <Label
+                TextColor="White"
+                FontSize = "30"
+                Text="Welcome To Muscles"/>
+            <Button 
+                     Text="Start Workout"
+                     TextColor="White"
+                     BackgroundColor="Transparent"
+                     BorderColor="#AC94C9"  
+                     BorderWidth="1.5"
+                     CornerRadius="50"
+                     Clicked="StartWorkoutBtn_Clicked"
+                     VerticalOptions="EndAndExpand"
+                     Margin="20"
+                     HeightRequest="50"
+                     
+                    
+             /> 
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

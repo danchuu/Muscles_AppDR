@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Muscles_app.Views.RegisterPage"        
+             BackgroundColor="Black">
+    <ContentPage.Content >
+        <StackLayout BackgroundColor="#000000"
+                 Padding="40"
+                 VerticalOptions="Center"
+                 HorizontalOptions="FillAndExpand">
+            <Entry
+                
+                x:Name="txtUsername"
+                Placeholder="Name" 
+                TextColor="White" 
+                PlaceholderColor="Gray"
+                FontSize="20"
+            />
+
+            <Entry
+                IsPassword="True"
+                x:Name="txtPassword"
+                Placeholder="Password" 
+                TextColor="White" 
+                PlaceholderColor="Gray"
+                FontSize="20"
+            />
+
+            <Button VerticalOptions="Center"
+                    Text="Register"
+                    TextColor="White"
+                    BackgroundColor="Transparent"
+                    BorderColor="#AC94C9"  
+                    BorderWidth="1.5"
+                    CornerRadius="50"
+                    Clicked="RegisterButton_Clicked"
+            />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

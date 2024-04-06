@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Muscles_app.Views.WorkoutPage"
+             xmlns:ViewModels="clr-namespace:Muscles_app.ViewModels"
+             xmlns:Converters="clr-namespace:Muscles_app.Converters"
+             BackgroundColor="White"
+             x:Name="Workouts">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add">
+            
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.BindingContext>
+        <ViewModels:WorkoutViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <Converters:StatusToBackgroundColorConverter x:Key="StatusToBackgroundColorConverter" />
+    </ContentPage.Resources>
+
+
+  
+    
+    <StackLayout >
+        <Grid BackgroundColor="Black" HeightRequest="0">
+            
+        </Grid>
+        <!-- Picker for selecting ExerciseType -->
+        <Picker Title="Select Exercise Type"
+                ItemsSource="{Binding AvailableExerciseTypes}"
+                ItemDisplayBinding="{Binding Name}"
+                SelectedItem="{Binding SelectedExerciseType, Mode=TwoWay}" />
+       
+        <!-- Button to create group based on the selected ExerciseType -->
+        <Button Text="Add Exercise"
+                Command="{Binding CreateGroupCommand}" />
+
+        <!-- Display ExerciseTypeGroups -->
+        <ListView ItemsSource="{Binding ExerciseTypeGroups}" HasUnevenRows="True" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <!-- Display ExerciseType of the group -->
+                        <StackLayout Margin="0,0,0,0" x:Name="ExerciseStack">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="5*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="0.17*" />
+
+                                    <!--Margin="30,20,30,0"-->
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Text="{Binding ExerciseType.Name}" 
+                                       FontAttributes="Bold"
+                                       FontSize="25" Padding="10" 
+                                       HorizontalOptions="Start" 
+                                       HorizontalTextAlignment="Start"/>
+                   
+                                <ImageButton 
+                                        Grid.Column="1" 
+                                        Command="{Binding BindingContext.DeleteGroupCommand, Source={x:Reference Name=Workouts}}"
+                                        CommandParameter="{Binding .}"
+                                        HorizontalOptions="End" Margin="5" 
+                                        HeightRequest="30"
+                                        BackgroundColor="Transparent"
+                                        Source="PurpleBinTransparent.png"/>
+                            </Grid>
+                            
+                         
+                            <StackLayout BindableLayout.ItemsSource="{Binding ExercisesInGroup}" >
+                              
+                                <BindableLayout.ItemTemplate>
+                                    
+                                    <DataTemplate>
+                                        <SwipeView>
+                                            
+                                            <SwipeView.RightItems>
+                                                <SwipeItems Mode="Execute">
+                                                    <SwipeItem Text="Delete" 
+                                                   BackgroundColor="Red"
+                                                   Command="{Binding Path=BindingContext.DeleteItemCommand, Source={x:Reference Name=Workouts}}"
+                                                   CommandParameter="{Binding Source={RelativeSource Self},  Path=BindingContext}"/>
+                                                </SwipeItems>
+                                            </SwipeView.RightItems>
+                                            
+                                            <Grid BackgroundColor="{Binding Status, Converter={StaticResource StatusToBackgroundColorConverter}}">
+                                                
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="2*" />
+                                                    <ColumnDefinition Width="2*" />
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+                                                
+                                                <!--Margin="30,20,30,0"-->
+                                                    <Entry   Text="{Binding Reps, Mode=TwoWay}" 
+                                                             Grid.Column="0" 
+                                                             Placeholder="Reps" 
+                                                             Keyboard="Numeric"/>
+                                                
+                                                    <Entry   Text="{Binding Weight, Mode=TwoWay}" 
+                                                             Grid.Column="1" 
+                                                             Placeholder="Weight" 
+                                                             Keyboard="Numeric"/>
+
+                                                    <Button  Grid.Column="2" Text="Complete"
+                                                             Command="{Binding Path=BindingContext.CompleteExerciseCommand, Source={x:Reference Name=Workouts}}" 
+                                                             CommandParameter="{Binding .}" />
+                                            </Grid>
+                                        </SwipeView>
+                                    </DataTemplate>
+                                </BindableLayout.ItemTemplate>
+                            </StackLayout>
+                            <Button Grid.Column="1" Text="Add Set" Command="{Binding BindingContext.AddExerciseToGroupCommand, Source={x:Reference Workouts}}" VerticalOptions="End" CommandParameter="{Binding ExerciseType} "/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Text="Complete Workout" Command="{Binding BindingContext.CreateGroupCommand}" />
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,4 @@
+D:\OneDrive\Работен плот\For DR\Muscles_app\Models\obj\Debug\netcoreapp3.1\Models.GeneratedMSBuildEditorConfig.editorconfig
+D:\OneDrive\Работен плот\For DR\Muscles_app\Models\obj\Debug\netcoreapp3.1\Models.AssemblyInfoInputs.cache
+D:\OneDrive\Работен плот\For DR\Muscles_app\Models\obj\Debug\netcoreapp3.1\Models.AssemblyInfo.cs
+D:\OneDrive\Работен плот\For DR\Muscles_app\Models\obj\Debug\netcoreapp3.1\Models.csproj.CoreCompileInputs.cache

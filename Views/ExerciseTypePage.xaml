@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Muscles_app.Views.ExerciseTypePage"
+             xmlns:ViewModels="clr-namespace:Muscles_app.ViewModels"
+             xmlns:Models ="clr-namespace:Muscles_app.Models">
+    <ContentPage.BindingContext>
+        <ViewModels:ExerciseTypeViewModel/>
+    </ContentPage.BindingContext>
+
+    <StackLayout Background="Black">
+        <Grid>
+            <Label Text="All Exercises"
+                    TextColor="White"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Start"
+                    HeightRequest="80"
+                    FontSize="25"
+                    Padding="15"></Label>
+
+            <Button HorizontalOptions="End"
+                    >
+                    
+            </Button>
+
+        </Grid>
+       
+        <CollectionView ItemsSource="{Binding AllExerciseTypes}"
+                        SelectionMode="Single"
+                        BackgroundColor="{StaticResource TheBackgroundColor}"
+                        HorizontalOptions="FillAndExpand" 
+                        >
+            <CollectionView.ItemTemplate >
+                
+                <DataTemplate x:DataType="Models:ExerciseType">
+                        <StackLayout>
+
+                            <Frame Padding="0.3" BorderColor="#AC94C9">
+                                <Grid   
+                                     BackgroundColor="#000000"
+                                     Padding="15"  
+                                     ColumnDefinitions="Auto,*"  
+                                     RowDefinitions="Auto, *"
+                                     HeightRequest="60 ">
+
+
+                                    <Label  
+                                          TextColor="White"
+                                          FontSize="22"
+                                          Grid.Column="1"  
+                                          FontAttributes="Bold"  
+                                    
+                                          Text="{Binding Name}" />
+                                    <Label  
+                                          TextColor="White"
+                                          Grid.Row="1"  
+                                          Grid.Column="1"  
+                                          FontAttributes="Italic"
+                                          VerticalOptions="End"
+                                          HorizontalOptions="Start"
+                                          Text="{Binding TargetedMuscle}" />
+                                    <Label
+                                        TextColor="White"
+                                          Text= "{Binding Equipment}" 
+                                          FontAttributes="Italic"
+                                          HorizontalTextAlignment="End"
+                                          VerticalOptions="End"
+                                          Grid.Column="2"
+                                          Grid.Row="1"/>
+                                </Grid>
+
+                            </Frame>
+
+                        </StackLayout>
+
+                </DataTemplate>
+                
+            </CollectionView.ItemTemplate>
+            
+        </CollectionView>
+        <!--<Frame BackgroundColor="#000000">
+            <Button BackgroundColor="#AC94C9"
+                    Text="Add Exercise"
+                    TextColor="White"
+                    Font="16"
+                    Padding="20"
+                    Clicked="AddExerciseButton_Clicked">
+
+            </Button>
+        </Frame>-->
+        
+    </StackLayout>
+</ContentPage>
