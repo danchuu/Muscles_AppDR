@@ -1,0 +1,11 @@
+D:\OneDrive\Работен плот\For DR\WebAPI\Models\bin\Debug\net6.0\Models.deps.json
+D:\OneDrive\Работен плот\For DR\WebAPI\Models\bin\Debug\net6.0\Models.dll
+D:\OneDrive\Работен плот\For DR\WebAPI\Models\bin\Debug\net6.0\Models.pdb
+D:\OneDrive\Работен плот\For DR\WebAPI\Models\obj\Debug\net6.0\Models.GeneratedMSBuildEditorConfig.editorconfig
+D:\OneDrive\Работен плот\For DR\WebAPI\Models\obj\Debug\net6.0\Models.AssemblyInfoInputs.cache
+D:\OneDrive\Работен плот\For DR\WebAPI\Models\obj\Debug\net6.0\Models.AssemblyInfo.cs
+D:\OneDrive\Работен плот\For DR\WebAPI\Models\obj\Debug\net6.0\Models.csproj.CoreCompileInputs.cache
+D:\OneDrive\Работен плот\For DR\WebAPI\Models\obj\Debug\net6.0\Models.dll
+D:\OneDrive\Работен плот\For DR\WebAPI\Models\obj\Debug\net6.0\refint\Models.dll
+D:\OneDrive\Работен плот\For DR\WebAPI\Models\obj\Debug\net6.0\Models.pdb
+D:\OneDrive\Работен плот\For DR\WebAPI\Models\obj\Debug\net6.0\ref\Models.dll
