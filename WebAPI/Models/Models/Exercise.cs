@@ -11,17 +11,16 @@ namespace Models
         [Key]
 
         public int ExerciseId { get; set; }
-        public int? Weight { get; set; }
-        public int? Reps { get; set; }
+        public int Weight { get; set; }
+        public int Reps { get; set; }
         public int Sets { get; set; }
         public Status Status { get; set; }
-        public ExerciseType ExerciseType { get; set; }
-        public List<Workout> Workouts { get; set; }
+        public ExerciseTypeGroup ExerciseTypeGroup { get; set; }
 
         // Use ExerciseType name as the name of the exercise
         public string Name
         {
-            get => ExerciseType?.Name;
+            get => ExerciseTypeGroup?.ExerciseType.Name;
             set { /* If you need to set the Name property, provide a setter */ }
         }
 
@@ -30,17 +29,16 @@ namespace Models
         public Exercise()
         {
             Status = Status.Waiting;
-            Workouts = new List<Workout>();
         }
 
-        public Exercise(int weight, int reps, int sets, ExerciseType exerciseType)
+        public Exercise(int weight, int reps, int sets, ExerciseTypeGroup exerciseTypeGroup)
         {
             Status = Status.Waiting;
             Weight = weight;
             Reps = reps;
             Sets = sets;
-            ExerciseType = exerciseType;
-            Workouts = new List<Workout>();
+            ExerciseTypeGroup = exerciseTypeGroup;
+
         }
     }
 }

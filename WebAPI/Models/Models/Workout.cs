@@ -13,7 +13,7 @@ namespace Models
 
         public List<ExerciseTypeGroup> ExerciseTypeGroups { get; set; }
         public int CreatorId { get; set; }
-        public User Creator { get; set; }
+        public User? Creator { get; set; }
         public Status Status { get; set; }
 
         public Workout()

@@ -1,5 +1,4 @@
-﻿using DataLayer1;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Models;
 using Services;
 

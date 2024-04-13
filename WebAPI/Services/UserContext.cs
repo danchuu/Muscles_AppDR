@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataLayer1
+namespace Services
 {
     public class UserContext : IDB<User, int>
     {

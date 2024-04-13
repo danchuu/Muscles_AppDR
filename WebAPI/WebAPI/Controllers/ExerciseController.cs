@@ -1,5 +1,4 @@
-﻿using DataLayer1;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Models;
 using Services;
 
@@ -27,7 +26,6 @@ namespace WebAPI.Controllers
 
         // POST: ExerciseController/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task Create([FromBody] Exercise item)
         {
             await _exerciseContext.CreateAsync(item);

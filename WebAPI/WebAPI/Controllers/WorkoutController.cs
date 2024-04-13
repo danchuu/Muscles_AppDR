@@ -1,5 +1,4 @@
-﻿using DataLayer1;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Services;
 using Models;
@@ -28,8 +27,9 @@ namespace WebAPI.Controllers
 
         // POST: WorkoutController/Create
         [HttpPost]
-        public async Task Create([FromBody]Workout item)
+        public async Task Create([FromBody] Workout item)
         {
+           // Console.WriteLine(WorkoutId);
            await _workoutContext.CreateAsync(item);
         }
 

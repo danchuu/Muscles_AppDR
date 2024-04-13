@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataLayer1
+namespace Services
 {
     public class ExerciseTypeContext : IDB<ExerciseType, int>
     {
@@ -58,10 +58,7 @@ namespace DataLayer1
             try
             {
                 IQueryable<ExerciseType> query = dbContext.ExerciseTypes;
-                if (useNavigationalProperties)
-                {
-                    query = query.Include(o => o.Exercises);
-                }
+ 
                 return await query.ToListAsync();
             }
             catch (Exception)
@@ -76,11 +73,7 @@ namespace DataLayer1
             try
             {
                 IQueryable<ExerciseType> query = dbContext.ExerciseTypes;
-                if (useNavigationalProperties)
-                {
-                    query = query.Include(o => o.Exercises);
-                }
-
+            
 
                 return await query.FirstOrDefaultAsync(c => c.ExerciseTypeId == key);
             }
@@ -106,23 +99,7 @@ namespace DataLayer1
                 exerciseTypeFromDb.Equipment = item.Equipment;
                 exerciseTypeFromDb.TargetedMuscle = item.TargetedMuscle;
 
-                if (useNavigationalProperties)
-                {
-                    List<Exercise> exercises = new List<Exercise>();
-                    foreach (Exercise e in item.Exercises)
-                    {
-                        Exercise exerciseFromDb = dbContext.Exercises.Find(e.ExerciseId);
-                        if (exerciseTypeFromDb != null)
-                        {
-                            exercises.Add(exerciseFromDb);
-                        }
-                        else
-                        {
-                            exercises.Add(e);
-                        }
-                    }
-                    exerciseTypeFromDb.Exercises = exercises;
-                }
+                
                 await dbContext.SaveChangesAsync();
             }
             catch (Exception)
